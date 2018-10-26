@@ -11,12 +11,15 @@ CREATE TABLE IF NOT EXISTS countries (
   PRIMARY KEY (country_id)
 );
 
+
+
 CREATE TABLE IF NOT EXISTS sellers (
   seller_id INT AUTO_INCREMENT,
   name VARCHAR(25),
   store_thumbnail VARCHAR(25),
   city VARCHAR(25),
-  countryID INT,
+  state VARCHAR(25) DEFAULT null,
+  country_id INT,
   FOREIGN KEY fk_country_id (country_id)
   REFERENCES countries (country_id),
   PRIMARY KEY (seller_id) 
@@ -31,6 +34,7 @@ CREATE TABLE IF NOT EXISTS items (
   price DECIMAL(7,2),
   sale_price DECIMAL (7,2) DEFAULT null,
   free_shipping BOOLEAN,
+  seller_id INT,
   PRIMARY KEY (item_id),
   FOREIGN KEY fk_seller (seller_id)
   REFERENCES sellers (seller_id)
