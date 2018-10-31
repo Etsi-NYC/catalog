@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS sellers (
   PRIMARY KEY (seller_id) 
 );
 
+
 CREATE TABLE IF NOT EXISTS items (
   item_id INT AUTO_INCREMENT,
   title VARCHAR(100),
