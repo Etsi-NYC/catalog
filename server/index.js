@@ -1,13 +1,11 @@
-//server
-
 const express = require('express');
 const path = require('path');
-const helpers = require('../db/index.js');
+const db = require('../db/index.js');
 const app = express();
 const port = process.env.PORT || 4000;
 const morgan = require('morgan');
 const Promise = require('bluebird');
-app.use(morgan('dev'))
+app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 const item = {};
@@ -26,15 +24,15 @@ app.get('/not-items', (req, res) => {
     items: []
   };
   new Promise((resolve, error) => {
-    helpers.getFirstItem(id, resolve);
+    db.getFirstItem(id, resolve);
   })
     .then(row => {
-      if(row === 'error'){
-        throw new error('invalid product')
+      if (row === 'error') {
+        throw new error('invalid product');
       }
       let seller = row[0].seller_id;
       return new Promise((resolve, error) => {
-        helpers.getSeller(seller, resolve);
+        db.getSeller(seller, resolve);
       }).then(seller => {
         data.seller.name = seller[0].name;
         data.seller.location = buildLocation(
@@ -44,9 +42,8 @@ app.get('/not-items', (req, res) => {
         );
         data.seller.avatar = seller[0].store_thumbnail;
         return new Promise((resolve, error) => {
-          helpers.getSimilarItems(1, resolve);
+          db.getSimilarItems(id, resolve);
         }).then(items => {
-
           for (let item of items) {
             data.items.push(item);
           }
@@ -55,7 +52,7 @@ app.get('/not-items', (req, res) => {
       });
     })
     .catch(error => {
-      res.send('error')
+      res.send('error');
     });
 });
 
@@ -67,3 +64,5 @@ app.get('/product/:item', (req, res) => {
 app.listen(port, () => {
   console.log(`server running at: http://localhost:${port}`);
 });
+
+exports.item = item;
