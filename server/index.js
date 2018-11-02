@@ -9,44 +9,28 @@ app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 const item = {};
-
-const buildLocation = function(thisCity, thisTerritory, thisCountry) {
-  if (thisTerritory === null) {
-    thisTerritory = thisCountry;
-  }
-  return ' ' + thisCity + ', ' + thisTerritory;
+const data = {
+  seller: {},
+  items: []
 };
 
 app.get('/not-items', (req, res) => {
-  var id = item.id;
-  let data = {
-    seller: {},
-    items: []
-  };
   new Promise((resolve, error) => {
-    db.getFirstItem(id, resolve);
+    db.getFirstItem(item.id, resolve);
   })
-    .then(row => {
-      if (row === 'error') {
+    .then(firstItem => {
+      if (firstItem === 'error') {
         throw new error('invalid product');
       }
-      let seller = row[0].seller_id;
+      let sellerID = firstItem[0].seller_id;
       return new Promise((resolve, error) => {
-        db.getSeller(seller, resolve);
+        db.getSeller(sellerID, resolve);
       }).then(seller => {
-        data.seller.name = seller[0].name;
-        data.seller.location = buildLocation(
-          seller[0].city,
-          seller[0].territory,
-          seller[0].country
-        );
-        data.seller.avatar = seller[0].store_thumbnail;
+        buildSeller(seller);
         return new Promise((resolve, error) => {
-          db.getSimilarItems(id, resolve);
+          db.getSimilarItems(item.id, resolve);
         }).then(items => {
-          for (let item of items) {
-            data.items.push(item);
-          }
+          buildItems(items);
           res.send(data);
         });
       });
@@ -64,5 +48,31 @@ app.get('/product/:item', (req, res) => {
 app.listen(port, () => {
   console.log(`server running at: http://localhost:${port}`);
 });
+
+//-------- HELPER FUNCTIONS --------//
+
+const buildLocation = function(city, territory, country) {
+  if (territory === null) {
+    territory = country;
+  }
+  return ' ' + city + ', ' + territory;
+};
+
+const buildSeller = function(seller) {
+  data.seller.name = seller[0].name;
+  data.seller.location = buildLocation(
+    seller[0].city,
+    seller[0].territory,
+    seller[0].country
+  );
+  data.seller.avatar = seller[0].store_thumbnail;
+};
+
+const buildItems = function(items) {
+  data.items = [];
+  for (let item of items) {
+    data.items.push(item);
+  }
+};
 
 exports.item = item;
