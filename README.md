@@ -33,12 +33,11 @@ If invalid, an error message is displayed.
 - Axios 0.18.0
 - Bluebird 3.5.2
 - Express 4.15.0
-- Jest 22.3.0
 - Knex 0.15.2
 - Morgan 1.9.1
+- MySQL 2.15.0
 - React 16.6.0
 - React-DOM 16.6.0
-- Request 2.83.0
 
 ## Development
 

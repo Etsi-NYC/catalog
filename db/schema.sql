@@ -68,5 +68,5 @@ VALUES
   "https://i.etsystatic.com/10899829/c/2182/1733/605/137/il/bb7c18/1432203374/il_340x270.1432203374_trdk.jpg", 
   "Pants", 5.55, 1, 1),
   ("Etsi Team Alpha!", 
-  "https://i.etsystatic.com/10899829/d/il/5b35e0/1454713033/il_340x270.1454713033_sbfo.jpg?version=0", 
+  "https://i.etsystatic.com/10899829/d/il/72989c/1639285992/il_340x270.1639285992_spro.jpg?version=0", 
   "Pants", 1.34, 1, 1);

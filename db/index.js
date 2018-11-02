@@ -42,6 +42,7 @@ var getSimilarItems = function(itemNum, cb) {
         .select()
         .from('items')
         .where('seller_id', '=', sellerId)
+        .andWhere('item_id', '<>', itemNum)
         .andWhere('item_category', '=', category)
         .andWhere('free_shipping', '=', 1)
         .orWhere('item_category', '<>', category)
