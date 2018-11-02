@@ -1,8 +1,10 @@
 var knex = require('knex')({
   client: 'mysql',
   connection: {
-    user: 'root',
-    password: '',
+    host: 'catalog.cqh0pq5hjlwt.us-east-2.rds.amazonaws.com',
+    port: 4000,
+    user: 'grantdiamond',
+    password: 'EtsiCatalogV1',
     database: 'etsi'
   }
 });
