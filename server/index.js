@@ -8,11 +8,18 @@ const Promise = require('bluebird');
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
+
+
 const item = {};
 const data = {
   seller: {},
   items: []
 };
+
+app.all('/*', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 app.get('/listing/:item', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
