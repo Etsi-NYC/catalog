@@ -15,19 +15,19 @@ class ListItem extends React.Component {
           <div className="picture-container-with-padding">
             <div className="picture-container">
               <img
-                className="item-image"
+                className="list-item-image"
                 src={this.props.item.item_thumbnail}
               />
             </div>
           </div>
           <div className="text-container-with-padding">
-            <div className="text-container">
-              <p className="item-title">{this.props.item.title}</p>
-              <p className="item-price">
-                <span className="currency">$</span>
-                <span className="price">{this.props.item.price}</span>
-                <span className="free-shipping-wrapper">
-                  <span className="free-shipping-text">Free Shipping</span>
+            <div className="list-item-text-container">
+              <p className="list-item-item-title">{this.props.item.title}</p>
+              <p className="list-item-item-price">
+                <span className="list-item-currency">$</span>
+                <span className="list-item-price">{this.props.item.price}</span>
+                <span className="list-item-free-shipping-wrapper">
+                  <span className="list-item-free-shipping-text">Free Shipping</span>
                 </span>
               </p>
             </div>

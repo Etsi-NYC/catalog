@@ -1,8 +1,8 @@
-.outer-container {
+.catalog-outer-container {
   width: 392px;
 }
 
-.header {
+.catalog-header {
   box-sizing: border-box;
   color: rgb(153, 153, 153);
   display: block;
@@ -40,7 +40,7 @@
   width: 50px;
 }
 
-.store-name {
+.catalog-store-name {
   background-color: rgba(0, 0, 0, 0);
   color: rgb(0, 0, 0);
   display: block;
@@ -53,20 +53,20 @@
   text-decoration: underline;
 }
 
-.header-link {
+.catalog-header-link {
   text-decoration: none;
 }
-.store-name:hover {
+.catalog-store-name:hover {
   color: rgba(33, 33, 33, 0.73);
 }
 
-.span {
+.catalog-span {
   font-weight: 500;
   padding-right: 1px;
   width: auto;
 }
 
-.store-location {
+.catalog-store-location {
   background-color: rgba(0, 0, 0, 0);
   color: rgb(153, 153, 153);
   display: block;
@@ -175,7 +175,7 @@
   text-rendering: optimizeLegibility;
 }
 
-.item-image {
+.list-item-image {
   border-bottom-color: rgb(34, 34, 34);
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
@@ -195,7 +195,7 @@
   transition: box-shadow 0.3s;
   width: 178px;
 }
-.item-image:hover {
+.list-item-image:hover {
   box-shadow: 0 0 8px rgba(33, 33, 33, 0.2);
 }
 
@@ -210,7 +210,7 @@
   text-align: left;
 }
 
-.text-container {
+.list-item-text-container {
   .text-container-with-padding {
     color: rgb(34, 34, 34);
     display: block;
@@ -222,7 +222,7 @@
   }
 }
 
-.item-title {
+.list-item-item-title {
   color: rgb(34, 34, 34);
   display: block;
   font-family: Roboto, Arial;
@@ -239,7 +239,7 @@
   width: 178px;
 }
 
-.item-price {
+.list-item-item-price {
   color: rgb(34, 34, 34);
   display: block;
   font-family: Roboto, Arial;
@@ -253,7 +253,7 @@
   width: 178px;
 }
 
-.currency {
+.list-item-currency {
   color: rgb(34, 34, 34);
   display: inline;
   font-family: Roboto, Arial;
@@ -263,7 +263,7 @@
   text-align: left;
 }
 
-.free-shipping-wrapper {
+.list-item-free-shipping-wrapper {
   color: rgb(34, 34, 34);
   display: inline;
   font-family: Roboto, Arial;
@@ -274,7 +274,7 @@
   text-align: left;
 }
 
-.free-shipping-text {
+.list-item-free-shipping-text {
   background-color: rgb(225, 227, 223);
   border-bottom-color: rgba(0, 0, 0, 0.05);
   border-bottom-left-radius: 3px;

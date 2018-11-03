@@ -47,20 +47,20 @@ class Catalog extends React.Component {
 
   render() {
     if (this.state.error === true) {
-      return <div className="outer-container">INVALID PRODUCT</div>;
+      return <div className="catalog-outer-container">INVALID PRODUCT</div>;
     } else {
       return (
         <div className="catalog">
-          <div className="outer-container">
-            <div className="header">
+          <div className="catalog-outer-container">
+            <div className="catalog-header">
               <a href={'/listing/' + window.location.pathname.slice(9)} className="header-link">
                 <div className="thumbnail-catalog">
                   <img src={this.state.seller.avatar} />
                 </div>
-                <div className="store-name">{this.state.seller.name}</div>
+                <div className="catalog-store-name">{this.state.seller.name}</div>
               </a>
-              <div className="store-location">
-                <span className="span">{this.state.span}</span>
+              <div className="catalog-store-location">
+                <span className="catalog-span">{this.state.span}</span>
                 {this.state.seller.location}
               </div>
               <div className="store-marketing" />
