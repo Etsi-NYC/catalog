@@ -14,9 +14,14 @@ const data = {
   items: []
 };
 
+app.get('/listing/:item', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+})
+
 app.get('/product/:item', (req, res) => {
+  var item = req.params.item
   new Promise((resolve, error) => {
-    db.getFirstItem(item.id, resolve);
+    db.getFirstItem(item, resolve);
   })
     .then(firstItem => {
       if (firstItem === 'error') {
@@ -28,7 +33,7 @@ app.get('/product/:item', (req, res) => {
       }).then(seller => {
         buildSeller(seller);
         return new Promise((resolve, error) => {
-          db.getSimilarItems(item.id, resolve);
+          db.getSimilarItems(item, resolve);
         }).then(items => {
           buildItems(items);
           res.send(data);

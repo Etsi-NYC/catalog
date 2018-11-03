@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Catalog</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="http://3.16.22.69/styles.css">
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 </head>
+
 <body>
   <div id="catalog"></div>
-  <script type="text/javascript" src="bundle.js"></script>
+  <script type="text/javascript" src="http://3.16.22.69/bundle.js"></script>
+  <script>ReactDOM.render(React.createElement(Catalog),
+      document.getElementById('catalog'));</script>
 </body>
+
 </html>
