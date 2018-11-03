@@ -15,7 +15,8 @@ class Catalog extends React.Component {
   }
 
   componentDidMount() {
-    this.get('/not-items', this.loadItems);
+    var id = window.location.pathname.slice(9);
+    this.get(`http://3.16.22.69/product/${id}`, this.loadItems);
   }
 
   get(url, callback) {
@@ -77,6 +78,6 @@ class Catalog extends React.Component {
   }
 }
 
-ReactDOM.render(<Catalog />, document.getElementById('catalog'));
+// ReactDOM.render(<Catalog />, document.getElementById('catalog'));
 
 window.Catalog = Catalog;

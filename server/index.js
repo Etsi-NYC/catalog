@@ -14,7 +14,7 @@ const data = {
   items: []
 };
 
-app.get('/not-items', (req, res) => {
+app.get('/product/:item', (req, res) => {
   new Promise((resolve, error) => {
     db.getFirstItem(item.id, resolve);
   })
@@ -38,11 +38,6 @@ app.get('/not-items', (req, res) => {
     .catch(error => {
       res.send('error');
     });
-});
-
-app.get('/product/:item', (req, res) => {
-  item.id = req.params.item;
-  res.redirect('/');
 });
 
 app.listen(port, () => {
