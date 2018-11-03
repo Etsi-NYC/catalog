@@ -148,8 +148,9 @@
   text-decoration-line: none;
   width: 178px;
 }
-
-
+.list-item-link:hover{
+  text-decoration: none;
+}
 
 .picture-container-with-padding {
   border-bottom-left-radius: 2px;
