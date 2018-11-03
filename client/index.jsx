@@ -54,7 +54,7 @@ class Catalog extends React.Component {
           <div className="outer-container">
             <div className="header">
               <a href={'/listing/' + window.location.pathname.slice(9)} className="header-link">
-                <div className="thumbnail">
+                <div className="thumbnail-catalog">
                   <img src={this.state.seller.avatar} />
                 </div>
                 <div className="store-name">{this.state.seller.name}</div>
