@@ -10,7 +10,7 @@ class ListItem extends React.Component {
       <li className="list-item-container">
         <a
           className="list-item-link"
-          href={'/' + this.props.item.item_id}
+          href={'/listing/' + this.props.item.item_id}
         >
           <div className="picture-container-with-padding">
             <div className="picture-container">
