@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import ListItem from './Components/listitem.jsx';
 
+
 class Catalog extends React.Component {
   constructor(props) {
     super(props);
@@ -52,7 +53,7 @@ class Catalog extends React.Component {
         <div className="catalog">
           <div className="outer-container">
             <div className="header">
-              <a href={'/'} className="header-link">
+              <a href={'/listing/' + window.location.pathname.slice(9)} className="header-link">
                 <div className="thumbnail">
                   <img src={this.state.seller.avatar} />
                 </div>
