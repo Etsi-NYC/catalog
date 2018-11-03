@@ -78,3 +78,5 @@ class Catalog extends React.Component {
 }
 
 ReactDOM.render(<Catalog />, document.getElementById('catalog'));
+
+window.Catalog = Catalog;
